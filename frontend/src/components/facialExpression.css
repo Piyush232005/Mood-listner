@@ -1,4 +1,4 @@
-.mood-element{
+.mood-element {
     width: 100%;
     display: flex;
     align-items: center;
@@ -10,12 +10,13 @@
 .mood-element button{
     padding: 0.7rem 1rem;
     border-radius: 0.5rem;
-    background-color: #2c2c2c;
-    color: white;
     border: none;
+    background-color: #2c2c2c;
+    color: aliceblue;
     cursor: pointer;
 }
-.user-video-feed{
+
+.user-video-feed {
     width: 20rem;
     aspect-ratio: 16/9;
     border-radius: 1rem;
