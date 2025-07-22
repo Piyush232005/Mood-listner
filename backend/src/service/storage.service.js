@@ -1,4 +1,5 @@
 var ImageKit = require("imagekit");
+var moongoose = require('mongoose');
 
 var imagekit = new ImageKit({
     publicKey : process.env.IMAGEKIT_PUBLIC_KEY,
@@ -11,8 +12,9 @@ function uploadFile(file){
     return new Promise((resolve, reject) =>{
         imagekit.upload({
             file:file.buffer,
-            fileName:"Hello_file"
-        },(error,result) =>{
+            fileName:new moongoose.Types.ObjectId().toString() ,
+            folder: "Songs"
+        },(error,result) =>{ 
             if(error){
                 reject(error);
             }else{

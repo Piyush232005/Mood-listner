@@ -1,32 +1,14 @@
 import { useState } from 'react'
 import "./MoodSongs.css";
 
-const MoodSongs = () => {
-
-
-  const [Songs, setSongs] = useState([
-    {
-      title: "test_title",
-      artist: "test_artist",
-      url: "test_url",
-    },
-    {
-      title: "test_title",
-      artist: "test_artist",
-      url: "test_url",
-    },
-    {
-      title: "test_title",
-      artist: "test_artist",
-      url: "test_url",
-    },
-  ])
+const MoodSongs = ({ Songs }) => {
   return (
     <div className='mood-songs'>
       <h2>Recommended Songs</h2>
-      
-        {Songs.map((song, index) => (
-          <div className ='song' key={index}>
+
+      {Array.isArray(Songs) && Songs.length > 0 ? (
+        Songs.map((song, index) => (
+          <div className='song' key={index}>
             <div className='title'>
               <h3>{song.title}</h3>
               <p>{song.artist}</p>
@@ -36,10 +18,12 @@ const MoodSongs = () => {
               <i className="ri-play-circle-fill"></i>
             </div>
           </div>
-        ))}
-      
+        ))
+      ) : (
+        <p>No songs available</p>
+      )}
     </div>
   )
 }
 
-export default MoodSongs
+export default MoodSongs;
