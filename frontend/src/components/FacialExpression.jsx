@@ -44,7 +44,7 @@ export default function FacialExpression({ setSongs }) {
             }
 
             setDetectedMood(_expression);
-            const response = await axios.get(`http://localhost:3000/songs?mood=${_expression}`);
+            const response = await axios.get(`/songs?mood=${_expression}`);
             setSongs(response.data.songs);
         } catch (error) {
             console.error("Error detecting mood:", error);
